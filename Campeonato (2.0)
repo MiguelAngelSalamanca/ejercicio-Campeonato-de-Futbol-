@@ -1,0 +1,56 @@
+Proceso sin_titulo
+	contPart<-0
+	puntos<-0
+	partGanado<-0
+	partPerdido<-0
+	partEmpatado<-0
+	sumaGol<-0
+	sumaGolCont<-0
+	repetir
+		Escribir "ingrese cantidad de partidos";
+		Leer partidos;
+	Hasta Que partidos>0;
+	borrar pantalla
+	repetir
+		contPart<-contPart+1;
+		repetir
+			Escribir "partido ",contPart;
+			Escribir "Ingrese goles anotados del equipo";
+			Leer goles_favor;
+		Hasta Que goles_favor>=0;
+		repetir
+			Escribir "ingrese goles en contra del equipo";
+			leer goles_contra;
+		hasta que goles_contra>=0;
+		SI goles_favor>goles_contra ENTONCES//partidos ganados
+			puntos<-puntos+3;
+			partGanado<-partGanado+1;//cotador de partidos ganados
+		Sino
+			si goles_contra>goles_favor entonces//partidos perdidos
+				puntos<-puntos
+				partPerdido<-partPerdido+1;//contados de partidos perdidos
+			Sino
+				si goles_contra=goles_favor Entonces
+					puntos<-puntos+1;
+					partEmpatado<-partEmpatado+1;//contador de patidos empatados
+				FinSi
+			FinSi
+		FINsi
+		sumaGol<-sumaGol+goles_favor;
+		sumaGolCont<-sumaGolCont+goles_contra;
+		//cuenta de DIFERENCIA DE GOLES........
+		si sumaGol>sumaGolCont entonces
+			diferencia<-sumaGolCont-sumaGol;
+		Sino
+			diferencia<-sumaGol-sumaGolCont;
+		FinSi
+	Hasta Que contPart=partidos;
+	Escribir partGanado," Total de partidos ganados.";
+	Escribir partEmpatado," Total de partidos Empatados.";
+	Escribir partPerdido," Total de partidos perdidos.";
+	escribir "Goles a Favor: ",sumaGol;
+	Escribir "Goles en Contra: ",sumaGolCont;
+	Escribir "Total de Puntos obtenidos en el torneo: ",puntos;
+	Escribir "La diferencia de goles: ",diferencia;
+	
+FinProceso
